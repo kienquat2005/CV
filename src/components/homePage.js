@@ -1,7 +1,21 @@
 import React, { Component } from "react";
-
+import apiCaller from './../utils/apiCaller';
 export default class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      careers: []
+    }
+  }
+  componentDidMount() {
+    apiCaller('careers', 'GET', null).then(response => {
+      this.setState({
+        careers: response.data
+      })    
+  })   
+  }
   render() {
+    var careers = this.state.careers;
     return (
       <div>
         <div className="card">
@@ -12,16 +26,10 @@ export default class HomePage extends Component {
               </strong>
               <hr />
               <div className="row">
-                <div className="">
-                  <p> - Help the company thrive.</p>
-                  <br></br>
-                  <p>
-                    - Perfect yourself and be successful in the future.
-                  </p>
-                  <br></br>
-                  <p> - Want to find a stable place in the long term.</p>
-                  <br></br>
-                  <p> - Want to find a place to devote yourself.</p>
+                <div className="content">
+                  {careers.map(res => (
+                    <p key={res.id}> - {res.content} </p>
+                  ))}
                 </div>
               </div>
             </h6>

@@ -15,7 +15,7 @@ export default class About extends Component {
         })   
     }
   render() {
-    console.log(this.state.items[0]);    
+      var items = this.state.items;
     return (
       <div> 
         <div className="card">
@@ -34,26 +34,48 @@ export default class About extends Component {
                 </h6>
                 <div className="row mt">
                     <div className="col s12 m6 l6 xl6">
-                        <p>
-                            <strong>Address: </strong> 
-                        </p>
-                        <p>
-                            <strong>Email: </strong> Kimthanh99153@gmail.com
-                        </p>
-                        <p>
-                            <strong>Phone: </strong> +84 367.592.479
-                        </p>
+                         {items.map(item => (
+                            <p key={item.id}>
+                            <strong>Full Name: </strong>  {item.FullName}
+                            </p>
+                        ))}
+                        {items.map(item => (
+                            <p key={item.id}>
+                            <strong>Gender: </strong>  {item.Gender}
+                            </p>
+                        ))}
+                         {items.map(item => (
+                            <p key={item.id}>
+                            <strong>DateOfBirth: </strong>  {item.DateOfBirth}
+                            </p>
+                        ))}
+                       {items.map(item => (
+                            <p key={item.id}>
+                            <strong>Address: </strong>  {item.Address}
+                            </p>
+                        ))}
                     </div>
                     <div className="col s12 m6 l6 xl6">
-                        <p>
-                            <strong>Main Language: </strong> Vietnamese
-                        </p>
-                        <p>
-                            <strong>Second Language: </strong> English
-                        </p>
-                        <p>
-                            <strong>Third Language: </strong> None
-                        </p>
+                        {items.map(item => (
+                            <p key={item.id}>
+                            <strong>Email: </strong>  {item.Email}
+                            </p>
+                        ))}
+                         {items.map(item => (
+                            <p key={item.id}>
+                            <strong>Phone: </strong>  {item.Phone}
+                            </p>
+                        ))}
+                         {items.map(item => (
+                            <p key={item.id}>
+                            <strong>MainLanguage: </strong>  {item.MainLanguage}
+                            </p>
+                        ))}
+                         {items.map(item => (
+                            <p key={item.id}>
+                            <strong>SecondLanguage: </strong>  {item.SecondLanguage}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -16,3 +16,6 @@
 .active {
   color: #ffff00;
 }
+.content {
+  line-height:50px;
+}
