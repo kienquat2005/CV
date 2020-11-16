@@ -12,7 +12,7 @@ export default class Experiences extends Component {
   componentDidMount() {
     apiCaller("experiences", "GET", null).then((response) => {
       this.setState({
-        experiences: response.data,
+        experiences: response.data
       });
     });
   }
